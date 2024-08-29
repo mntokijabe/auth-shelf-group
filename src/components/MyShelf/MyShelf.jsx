@@ -11,6 +11,7 @@ function MyShelf() {
   const userId = params.id
 
 useEffect (() => {
+  console.log('in myshelf with userID', userId)
     dispatch({ type: 'GET_MY_ITEMS', payload: userId})
 },[userId]);
 

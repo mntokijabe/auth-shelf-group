@@ -62,18 +62,18 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          <Route
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user/:id"
+            path="/shelf/:id"
           >
             <MyShelf />
-          </ProtectedRoute>
+          </Route>
           
           <Route
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/shelf"
+            path="/shelf/"
           >
             <ShelfPage />
           </Route>

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
-
+  const myRouteIdString = "/shelf/" + user.id
   return (
     <div className="nav">
       <Link to="/home">
@@ -31,7 +31,7 @@ function Nav() {
           <Link className="navLink" to="/shelf">
             The Shelf
           </Link>
-          <Link className="navLink" to="/shelf/${user.id}">
+          <Link className="navLink" to={myRouteIdString}>
             My Shelf
           </Link>
         <Link className="navLink" to="/about">

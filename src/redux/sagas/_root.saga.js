@@ -23,6 +23,6 @@ export default function* rootSaga() {
     deleteItems(),
     addItemSaga(),
     getShelfItems(),
-    getMyShelfItems,
+    getMyShelfItems(),
   ]);
 }
