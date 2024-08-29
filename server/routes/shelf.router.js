@@ -13,24 +13,26 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-  //let itemToAdd = req.body.somthing
+  let description = req.body.description
+  let image = req.body.image_url
+  let user = req.body.user_id
   // endpoint functionality
-  //console.log('req.body', req.body);
-  //let queryText = `
-  // INSET INTO "items"
-  //    ("discription", "image_url", "user_id")
-  //    VALUES
-  //    ($1, $2, $3)`;
+  console.log('req.body', req.body);
+  let queryText = `
+  INSERT INTO "item"
+     ("description", "image_url", "user_id")
+     VALUES
+     ($1, $2, $3)`;
 
-  // let queryValues = [itemToAdd];
+  let queryValues = [description, image, user];
 
-  //pool.query(queryText, queryValues)
-  //  .then(result => {
-    // res.sendStatus(201)
-    //})
-    //.catch(error => {
-      //console.log('error adding an item ', error)
-      //})
+  pool.query(queryText, queryValues)
+   .then(result => {
+    res.sendStatus(201)
+    })
+    .catch(error => {
+      console.log('error adding an item ', error)
+      })
 });
 
 /**
