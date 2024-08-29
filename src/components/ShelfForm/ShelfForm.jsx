@@ -39,6 +39,7 @@ function ShelfForm () {
             type: 'ADD_ITEM',
             payload: itemToAdd
         })
+        setItemToAdd({description: '', image_url: '', user_id: user.id })
     }
 
 
