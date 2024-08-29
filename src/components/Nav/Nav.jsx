@@ -31,6 +31,9 @@ function Nav() {
           <Link className="navLink" to="/shelf">
             The Shelf
           </Link>
+          <Link className="navLink" to="/shelf/:id">
+            My Shelf
+          </Link>
         <Link className="navLink" to="/about">
           About
         </Link>
