@@ -14,6 +14,6 @@ function* fetchMyItems(action) {
 }
 
 function* getMyShelfItems() {
-    yield takeLatest('GET_ITEMS',fetchMyItems)
+    yield takeLatest('GET_MY_ITEMS',fetchMyItems)
 }
 export default getMyShelfItems;

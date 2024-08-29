@@ -2,14 +2,17 @@ import ShelfForm from '../ShelfForm/ShelfForm';
 import React, {useEffect} from 'react';
 import useReduxStore from '../../hooks/useReduxStore';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function MyShelf() {
   const dispatch = useDispatch()
   const store = useReduxStore()
+  const params = useParams()
+  const userId = params.id
 
 useEffect (() => {
-    dispatch({ type: 'GET_MY_ITEMS', payload: store.user.id})
-},[]);
+    dispatch({ type: 'GET_MY_ITEMS', payload: userId})
+},[userId]);
 
   const handleDelete =(itemId) => {
     dispatch({ type: 'DELETE_ITEM', payload:itemId})
