@@ -6,10 +6,14 @@ function ShelfForm () {
 
     const dispatch = useDispatch();
 
-    let [itemToAdd, setItemToAdd] = useState({description: '', image_url: '', user_id: 0 })
-
+    //fetches the user object from redux
+    //The object keys are id and username
     const user = useSelector((store) => store.user )
 
+    let [itemToAdd, setItemToAdd] = useState({description: '', image_url: '', user_id: user.id })
+
+    
+    //This function sets the description key in the itemToAdd variable
     const handleDescriptionChange = (event) => {
         setItemToAdd({
             ...itemToAdd,
@@ -17,6 +21,7 @@ function ShelfForm () {
         });
     }
 
+    //This function sets the image_url key in the itemToAdd variable
     const handleImageChange = (event) => {
         setItemToAdd({
             ...itemToAdd,
@@ -24,13 +29,10 @@ function ShelfForm () {
         });
     }
 
+    //The addItem function is called when the submit button is clicked
     const addItem = (event) => {
         event.preventDefault();
 
-        setItemToAdd({
-            ...itemToAdd,
-            user_id: user.id
-        });
         console.log('in the addItem function and our payload is: ', itemToAdd, user.id)
 
         dispatch({
