@@ -46,6 +46,30 @@ router.post('/', (req, res) => {
       })
 });
 
+// * ----------- PUT ROUTE ----------- * //
+
+router.put('/', (req, res) => {
+  console.log('PUT ROUTER received a BRIIQUEST!!', req.body)
+  let id = req.body.id;
+  let description = req.body.description;
+  console.log('This is for YOU , Emma!', id, description);
+  const sqlText = `
+    UPDATE "item"
+    SET "description" = $1
+    WHERE "id" = $2
+    `;
+
+    const sqlValues = [description, id];
+    pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbError) => {
+      console.log('YO theres database error in PUT route!', dbError),
+      res.sendStatus(500);
+    })
+})
+
 /**
  * Delete an item if it's something the logged in user added
  */

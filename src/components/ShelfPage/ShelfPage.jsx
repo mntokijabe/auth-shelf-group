@@ -15,6 +15,13 @@ useEffect (() => {
     dispatch({ type: 'DELETE_ITEM', payload:itemId})
   }
 
+  const handleEdit = (object) => {
+    dispatch({
+      type: 'EDIT_ITEM',
+      payload: object
+    })
+  }
+
   return (
     <div className="container">
       <ShelfForm />
@@ -23,8 +30,10 @@ useEffect (() => {
       <ul>
         {store.shelfItems.map((shelfItems) => {
           return (
-            <li key={shelfItems.id}>{shelfItems.description}
+            <li key={shelfItems.id}>
+              {/* <input value={shelfItems.description}></input> */}
               <img className="itemImage" src={shelfItems.image_url}></img>
+              <button type="submit" onClick={() => {handleEdit({id: shelfItems.id, description: shelfItems.description})}}>EDIT</button>
               <button type="submit" onClick={() => {handleDelete(shelfItems.id)}}>Delete</button>
               </li> 
           )
