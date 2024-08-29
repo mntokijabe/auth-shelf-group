@@ -110,3 +110,10 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.itemImage {
+  max-width: 150px;
+  max-height: 150px;
+  margin-left: 15px;
+
+}
