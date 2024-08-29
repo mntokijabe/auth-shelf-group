@@ -11,6 +11,10 @@ useEffect (() => {
     dispatch({ type: 'GET_ITEMS'})
 },[]);
 
+  const handleDelete =(itemId) => {
+    dispatch({ type: 'DELETE_ITEM', payload:itemId})
+  }
+
   return (
     <div className="container">
       <ShelfForm />
@@ -19,7 +23,10 @@ useEffect (() => {
       <ul>
         {store.shelfItems.map((shelfItems) => {
           return (
-            <li key={shelfItems.id}>{shelfItems.description}<img className="itemImage" src={shelfItems.image_url}></img></li> 
+            <li key={shelfItems.id}>{shelfItems.description}
+              <img className="itemImage" src={shelfItems.image_url}></img>
+              <button type="submit" onClick={() => {handleDelete(shelfItems.id)}}>Delete</button>
+              </li> 
           )
         })}
       </ul>
