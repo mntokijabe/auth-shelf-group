@@ -1,3 +1,4 @@
+import ShelfForm from '../ShelfForm/ShelfForm';
 import React, {useEffect} from 'react';
 import useReduxStore from '../../hooks/useReduxStore';
 import { useDispatch } from 'react-redux';
@@ -12,6 +13,7 @@ useEffect (() => {
 
   return (
     <div className="container">
+      <ShelfForm />
       <h2>Shelf</h2>
       <p>All of the available items can be seen here.</p>
       <ul>
