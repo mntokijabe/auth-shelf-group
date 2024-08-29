@@ -23,7 +23,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * Add an item for the logged in user to the shelf
  */
-router.post('/', (req, res) => {
+router.post('/',rejectUnauthenticated, (req, res) => {
   let description = req.body.description
   let image = req.body.image_url
   let user = req.body.user_id

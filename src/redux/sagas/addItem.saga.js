@@ -5,7 +5,7 @@ function* addItem (action) {
     console.log('in the addItem saga the action.payload is', action.payload)
     try{
         yield axios.post('/api/shelf', action.payload)
-        //put luke and elwoods function below.
+        yield put({type: 'GET_ITEMS'})
     } catch (error) {
         console.log('addItem POST request failed ', error)
     }
