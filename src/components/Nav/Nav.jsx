@@ -26,14 +26,15 @@ function Nav() {
           <>
 
             <LogOutButton className="navLink" />
+            <Link className="navLink" to={myRouteIdString}>
+            My Shelf
+          </Link>
           </>
         )}
           <Link className="navLink" to="/shelf">
             The Shelf
           </Link>
-          <Link className="navLink" to={myRouteIdString}>
-            My Shelf
-          </Link>
+
         <Link className="navLink" to="/about">
           About
         </Link>

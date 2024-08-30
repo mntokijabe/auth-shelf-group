@@ -13,8 +13,6 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
-      <button className="btn" onClick={() => {history.push('/user/${user.id}')}}></button>
-      <ShelfPage />
     </div>
   );
 }
