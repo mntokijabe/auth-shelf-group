@@ -25,7 +25,8 @@ useEffect (() => {
           return (
             <li key={shelfItems.id}>{shelfItems.description}
               <img className="itemImage" src={shelfItems.image_url}></img>
-              <button type="submit" onClick={() => {handleDelete(shelfItems.id)}}>Delete</button>
+              {store.user.id && ( 
+              <button type="submit" onClick={() => {handleDelete(shelfItems.id)}}>Delete</button>)}
               </li> 
           )
         })}

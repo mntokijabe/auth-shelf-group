@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
+
 function ShelfForm () {
 
     const dispatch = useDispatch();
-
     //fetches the user object from redux
     //The object keys are id and username
     const user = useSelector((store) => store.user )
@@ -45,27 +45,29 @@ function ShelfForm () {
 
 
     return (
-        <div>
-            <h2>Add Item to Shelf:</h2>
-            <form onSubmit={(event) => addItem(event)}>
-                <input 
-                    onChange={handleDescriptionChange}
-                    type = 'text'
-                    placeholder = 'Item Description'
-                    value = {itemToAdd.description}
-                />
+            <div>     
+                {user.id && (<>
+                    <h2>Add Item to Shelf:</h2>
+                    <form onSubmit={(event) => addItem(event)}>
+                        <input 
+                            onChange={handleDescriptionChange}
+                            type = 'text'
+                            placeholder = 'Item Description'
+                            value = {itemToAdd.description}
+                        />
 
-                <input 
-                    onChange={handleImageChange}
-                    type = 'text'
-                    placeholder = 'Item Image URL'
-                    value = {itemToAdd.image_url}
-                />
+                        <input 
+                            onChange={handleImageChange}
+                            type = 'text'
+                            placeholder = 'Item Image URL'
+                            value = {itemToAdd.image_url}
+                        />
 
-                <button type='submit'>Submit</button>
-            </form>
-        </div>
-
+                        <button type='submit'>Submit</button>
+                    </form>
+                    </>
+            )}
+             </div>
     )
 
 }
