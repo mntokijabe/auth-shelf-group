@@ -19,6 +19,8 @@ import ShelfPage from '../ShelfPage/ShelfPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MyShelf from '../MyShelf/MyShelf';
+
 
 import './App.css';
 
@@ -60,6 +62,14 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/shelf/:id"
+          >
+            <MyShelf />
+          </ProtectedRoute>
+          
           <Route
             // logged in shows InfoPage else shows LoginPage
             exact
